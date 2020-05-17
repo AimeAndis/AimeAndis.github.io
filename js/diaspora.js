@@ -214,7 +214,7 @@ $(function() {
             setTimeout(function() { cover.t.load() }, 0)
         }
         cover.t.on('load', function() {
-            ;(cover.f = function() {
+            (cover.f = function() {
                 var _w = $('#mark').width(), _h = $('#mark').height(), x, y, i, e;
                 e = (_w >= 1000 || _h >= 1000) ? 1000 : 500;
                 if (_w >= _h) {

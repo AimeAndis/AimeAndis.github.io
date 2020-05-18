@@ -137,6 +137,11 @@
 <p>这对内容比较多的页面尤为重要，用户可以先查看已经下载渲染的内容，而不是盯着白屏等待。</p>
 <p>如果把样式表放在页面底部，一些浏览器为减少重绘，会在 CSS 加载完成以后才渲染页面，用户体验极差。</p>
 <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="把脚本放在页面底部"><a href="#把脚本放在页面底部" class="headerlink" title="把脚本放在页面底部"></a>把脚本放在页面底部</h3><p>浏览器下载脚本时，会阻塞其他资源并行下载，即使是来自不同域名的资源。因此，最好将脚本放在底部，以提高页面加载速度。</p>
+<p>一些特殊场景无法将脚本放到页面底部的，可以考虑 <code>&lt; script &gt;</code> 的以下属性：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement#defer_property" target="_blank" rel="noopener"><code>defer</code> 属性</a>；</li>
+<li>HTML5 新增的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement#async_property" target="_blank" rel="noopener"><code>async</code> 属性</a>。</li>
+</ul>
 <h3 id="使用外部-JavaScript-和-CSS"><a href="#使用外部-JavaScript-和-CSS" class="headerlink" title="使用外部 JavaScript 和 CSS"></a>使用外部 JavaScript 和 CSS</h3><p>外部 JavaScript 和 CSS 文件可以被浏览器缓存，在不同页面间重用，也能降低页面大小。</p>
 <p>当然，实际中也需要考虑代码的重用程度。如果仅仅是某个页面使用到的代码，可以考虑内嵌在页面中，减少 HTTP 请求数。另外，可以在首页加载完成以后，预先加载子页面的资源。</p>
 <h3 id="压缩-JavaScript-和-CSS"><a href="#压缩-JavaScript-和-CSS" class="headerlink" title="压缩 JavaScript 和 CSS"></a>压缩 JavaScript 和 CSS</h3><p>压缩代码可以移除非功能性的字符 （注释，空格，空行等），减少文件大小，提高载入速度。</p>

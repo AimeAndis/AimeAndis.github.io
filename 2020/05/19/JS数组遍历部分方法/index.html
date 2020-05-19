@@ -124,6 +124,7 @@ for 循环与 forEach / map / filter / find 的使用
 </ul>
 <p><strong>必须要有返回值，如果不给return，会返回一个undefined</strong></p>
 <p>return 的返回值是什么,相当于给这个新增的数组添加新的值,<strong>但它不会影响原数组,只是将原来的数组拷贝了一份,把拷贝的数组项进行更改,支持链式调用</strong></p>
+<hr>
 <blockquote>
 <p><strong>filter</strong></p>
 </blockquote>
@@ -149,8 +150,7 @@ for 循环与 forEach / map / filter / find 的使用
 <p>还是回到水果示例，假设要去掉price小于10且type为common的水果，实现如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var fruitNewExpensive &#x3D; obj.data.fruits.filter(function(fruit,index,arr)&#123;</span><br><span class="line">	return fruit.price &gt;&#x3D; 10 &amp;&amp; fruit.type &#x3D;&#x3D;&#x3D; &quot;new&quot;;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(fruitNewExpensive); </span><br><span class="line">&#x2F;&#x2F; [&#123;&quot;id&quot;:&quot;0A1&quot;,&quot;name&quot;:&quot;荔枝&quot;,&quot;number&quot;:1342,“price”:18,&quot;type&quot;:&quot;new&quot;&#125;]</span><br></pre></td></tr></table></figure>
 
-
-
+<hr>
 <blockquote>
 <p><strong>find</strong></p>
 </blockquote>

@@ -102,7 +102,7 @@ this 为何也？ 很多时候在面对JavaScript代码时，看到this总会让
 
 
 <p>apply 方法接受两个参数，第一个参数是this的指向，第二个参数是一个参数数组。当第一个参数为null，undefined的时候，默认指向window。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getName.call(obj,[<span class="string">'pineapple'</span>,<span class="string">'strawberry'</span>,<span class="string">'watermelon'</span>])</span><br><span class="line"><span class="comment">// this =&gt; obj</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getName.apply(obj,[<span class="string">'pineapple'</span>,<span class="string">'strawberry'</span>,<span class="string">'watermelon'</span>])</span><br><span class="line"><span class="comment">// this =&gt; obj</span></span><br></pre></td></tr></table></figure>
 
 
 

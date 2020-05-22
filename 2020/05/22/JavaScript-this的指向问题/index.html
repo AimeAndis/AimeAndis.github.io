@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JavaScript this的指向问题 - 玫瑰~尘埃</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Aime,"> 
+    <meta name="description" content="
+this 为何也？ 很多时候在面对JavaScript代码时，看到this总会让人晕乎乎。无法准确快速的判断当前this指向到底是什么。现在做下简单的总结，方便日后回顾。
+
+普通函数中的this
+,"> 
+    <meta name="author" content="Aime"> 
+    <link rel="alternative" href="atom.xml" title="玫瑰~尘埃" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">玫瑰~尘埃</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://aimeandis.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">JavaScript this的指向问题</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JavaScript this的指向问题</h1>
+        <div class="stuff">
+            <span>五月 22, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p><strong>this</strong> 为何也？ 很多时候在面对JavaScript代码时，看到this总会让人晕乎乎。无法准确快速的判断当前this指向到底是什么。现在做下简单的总结，方便日后回顾。</p>
+</blockquote>
+<h3 id="普通函数中的this"><a href="#普通函数中的this" class="headerlink" title="普通函数中的this"></a>普通函数中的this</h3><ol>
+<li><p><strong>总是代表着它的直接调用者</strong>，如obj.fn，fn里的最外层this就是指向obj</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name:<span class="string">'菠萝'</span>,</span><br><span class="line">    price:<span class="number">9.8</span>,</span><br><span class="line">    discount:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// obj</span></span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        	<span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// window</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;    </span><br><span class="line">&#125;</span><br><span class="line">obj.discount();</span><br></pre></td></tr></table></figure>
+
+<p>discount直接调用者是obj, this指向obj，setTimeout里匿名函数，没有直接调用者，this指向window</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>默认情况下，<strong>没有直接调用者，this 指向window</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>) <span class="comment">// window</span></span><br><span class="line">&#125;</span><br><span class="line">say(); <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
+
+<p>say是全局函数，没有直接调用它的对象，也没有使用严格模式，this指向window</p>
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>严格模式下，this为undefined</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">	'use strict'</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// undefined</span></span><br><span class="line">&#125;</span><br><span class="line">say(); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li>当<strong>使用call , apply , bind 进行绑定时，this指向绑定对象</strong></li>
+</ol>
+<p>call 方法第一个参数是this的指向，后面传入的是一个参数列表。当第一个参数为null，undefined的时候，默认指向window。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getName.call(obj,<span class="string">'pineapple'</span>,<span class="string">'strawberry'</span>,<span class="string">'watermelon'</span>) </span><br><span class="line"><span class="comment">// this =&gt; obj</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>apply 方法接受两个参数，第一个参数是this的指向，第二个参数是一个参数数组。当第一个参数为null，undefined的时候，默认指向window。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getName.call(obj,[<span class="string">'pineapple'</span>,<span class="string">'strawberry'</span>,<span class="string">'watermelon'</span>])</span><br><span class="line"><span class="comment">// this =&gt; obj</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>bind 方法和 call 方法很相似，第一个参数是this的指向，从第二个参数开始是接收的参数列表。区别在于bind方法返回值是函数以及bind接收的参数列表的使用。低版本浏览器没有该方法，需要自己手动实现</p>
+<h3 id="ES6箭头函数中this"><a href="#ES6箭头函数中this" class="headerlink" title="ES6箭头函数中this"></a>ES6箭头函数中this</h3><ol>
+<li><p>默认指向定义它时，所处上下文的对象的this指向。<strong>看箭头函数定义的环境是什么（找上一个 { } ），定义环境执行时this指向谁，箭头函数的this就指向谁。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123;</span><br><span class="line">	name:&#39;菠萝&#39;,</span><br><span class="line">	price:9.8,</span><br><span class="line">	discount:function()&#123;</span><br><span class="line">		console.log(this); &#x2F;&#x2F; obj</span><br><span class="line">		setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">			console.log(this); &#x2F;&#x2F; obj</span><br><span class="line">	&#125;)</span><br><span class="line"> &#125;	</span><br><span class="line">&#125;</span><br><span class="line">obj.discount();</span><br></pre></td></tr></table></figure>
+
+<p>discount直接调用者是obj, 第一个this指向obj, setTimeout箭头函数，this指向最近的函数指向，即也是obj</p>
+</li>
+</ol>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">	price:<span class="number">11</span>,</span><br><span class="line">	discount()&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.price/<span class="number">2</span></span><br><span class="line">	&#125;,</span><br><span class="line">	promote:<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.price - <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.discount()) <span class="comment">//5.5</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.promote()) <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+
+<p>   discount是普通函数，里面的this指向直接调用它的对象obj。promote是箭头函数，this应该指向上下文函数this的指向，这里上下文没有函数对象，就默认为window，而window里面没有price这个属性，就返回为NaN</p>
+<ol start="2">
+<li>即使是<strong>call, apply , bind等方法也不能改变箭头函数this的指向</strong></li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

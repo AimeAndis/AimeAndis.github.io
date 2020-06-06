@@ -11,9 +11,9 @@
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Aime,"> 
     <meta name="description" content="
-CSS3 transition属性可以实现元素转换的过渡效果。日常开发可以实现一些样式的小细节：鼠标悬停颜色的渐变，宽高圆角的变换，角度的转换等等。
+CSS3 transition 属性可以实现元素转换的过渡效果。日常开发可以实现一些样式的小细节：鼠标悬停颜色的渐变，宽高圆角的变换，角度的转换等等。
 
-属性说明transition 属性是包含了以,"> 
+属性说明transition 属性是包含了,"> 
     <meta name="author" content="Aime"> 
     <link rel="alternative" href="atom.xml" title="玫瑰~尘埃" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -66,44 +66,40 @@ CSS3 transition属性可以实现元素转换的过渡效果。日常开发可�
         </div>
         <div class="content markdown">
             <blockquote>
-<p>CSS3 transition属性可以实现元素转换的过渡效果。日常开发可以实现一些样式的小细节：鼠标悬停颜色的渐变，宽高圆角的变换，角度的转换等等。</p>
+<p>CSS3 transition 属性可以实现元素转换的过渡效果。日常开发可以实现一些样式的小细节：鼠标悬停颜色的渐变，宽高圆角的变换，角度的转换等等。</p>
 </blockquote>
 <h3 id="属性说明"><a href="#属性说明" class="headerlink" title="属性说明"></a>属性说明</h3><p><code>transition</code> 属性是包含了以下四个属性的简写：</p>
 <ul>
-<li>transition-property   (指定元素transition效果，CSS属性的name)</li>
-<li>transition-duration  (指定transition效果多少秒或多少毫秒完成)</li>
-<li>transition-timing-function  (指定transition效果的转速曲线)</li>
-<li>transition-delay  (指定transition效果开始的时候)</li>
+<li>transition-property (指定元素 transition 效果，CSS 属性的 name)</li>
+<li>transition-duration (指定 transition 效果多少秒或多少毫秒完成)</li>
+<li>transition-timing-function (指定 transition 效果的转速曲线)</li>
+<li>transition-delay (指定 transition 效果开始的时候)</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transition: property duration timing-function delay; &#x2F;* default all 0 ease 0 *&#x2F;</span><br></pre></td></tr></table></figure>
 
-<p>注意：始终指定 <code>transition-duration</code> 属性，否则持续时间为0，transition不会有任何效果。</p>
-<p>​      </p>
+<p>注意：始终指定 <code>transition-duration</code> 属性，否则持续时间为 0，transition 不会有任何效果。</p>
+<p>​</p>
 <p><code>transition-timing-function</code> 属性取值：</p>
 <ul>
-<li>linear  规定以相同速度开始至结束的过渡效果（等同于 cubic-bezier(0,0,1,1)）</li>
-<li>ease  规定以慢速开始，然后变快，然后慢速结束的过渡效果  ( cubic-bezier(0.25,0.1,0.25,1))</li>
-<li>ease-in  规定以慢速开始的过渡效果 （cubic-bezier(0.42,0,1,1)）</li>
-<li>ease-out  规定以慢速结束的过渡效果 （cubic-bezier(0,0,0.58,1)）</li>
-<li>ease-in-out   规定以慢速开始和结束的过渡效果（cubic-bezier(0.42,0,0.58,1)）</li>
-<li>cubic-bezier(n,n,n,n)  在cubic-bezier函数中定义自己的值。可能的值是0至1之间的数值。</li>
+<li>linear 规定以相同速度开始至结束的过渡效果（等同于 cubic-bezier(0,0,1,1)）</li>
+<li>ease 规定以慢速开始，然后变快，然后慢速结束的过渡效果 ( cubic-bezier(0.25,0.1,0.25,1))</li>
+<li>ease-in 规定以慢速开始的过渡效果 （cubic-bezier(0.42,0,1,1)）</li>
+<li>ease-out 规定以慢速结束的过渡效果 （cubic-bezier(0,0,0.58,1)）</li>
+<li>ease-in-out 规定以慢速开始和结束的过渡效果（cubic-bezier(0.42,0,0.58,1)）</li>
+<li>cubic-bezier(n,n,n,n) 在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。</li>
 </ul>
-<p>​      </p>
-<h5 id="几个小示例："><a href="#几个小示例：" class="headerlink" title="几个小示例："></a>几个小示例：</h5><h6 id="1-带过渡效果的变色"><a href="#1-带过渡效果的变色" class="headerlink" title="1.  带过渡效果的变色"></a>1.  带过渡效果的变色</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">background-color</span>: red;</span><br><span class="line">	<span class="attribute">transition</span>: background-color <span class="number">2s</span> linger;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">	<span class="attribute">background-color</span>: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<h5 id="几个小示例："><a href="#几个小示例：" class="headerlink" title="几个小示例："></a>几个小示例：</h5><h6 id="1-带过渡效果的变色"><a href="#1-带过渡效果的变色" class="headerlink" title="1. 带过渡效果的变色"></a>1. 带过渡效果的变色</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">transition</span>: background-color <span class="number">2s</span> linger;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h6 id="2-带过渡效果的变形"><a href="#2-带过渡效果的变形" class="headerlink" title="2. 带过渡效果的变形"></a>2. 带过渡效果的变形</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">transition</span>: width <span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h6 id="3-拥有多个过度属性"><a href="#3-拥有多个过度属性" class="headerlink" title="3. 拥有多个过度属性"></a>3. 拥有多个过度属性</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">2s</span> ease-out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: orange;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#444</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h6 id="2-带过渡效果的变形"><a href="#2-带过渡效果的变形" class="headerlink" title="2.  带过渡效果的变形"></a>2.  带过渡效果的变形</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">transition</span>: width <span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="3-拥有多个过度属性"><a href="#3-拥有多个过度属性" class="headerlink" title="3.  拥有多个过度属性"></a>3.  拥有多个过度属性</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>:red;</span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">	<span class="attribute">transition</span>: all <span class="number">2s</span> ease-out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: orange;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#444</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​      </p>
+<p>​</p>
 <hr>
 <p>个人觉得 transition 解决了一些元素在转换样式时的一种死板生硬的状态，能更顺滑柔和地从原有样式更换到新样式。这让页面的小动效看起来没有很机械突兀，非常推荐在日常的一些效果中加入过渡。</p>
-<p>​      </p>
-<p>本文只简单介绍了 <code>transition</code> 如何实现元素转换状态以及展示了一些朴素的例子，后面还能喝其它动画结合起来使用。想了解更多 CSS3样式技巧，请移步 <a href="https://aimeandis.github.io/categories/css/">这里</a> 哦 ！</p>
+<p>​</p>
+<p>本文只简单介绍了 <code>transition</code> 如何实现元素转换状态以及展示了一些朴素的例子，后面还能和其它动画结合起来使用。想了解更多 CSS3 样式技巧，请移步 <a href="https://aimeandis.github.io/categories/css/">这里</a> 哦 ！</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

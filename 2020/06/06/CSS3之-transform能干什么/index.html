@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CSS3之 transform能干什么 - 玫瑰~尘埃</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Aime,"> 
+    <meta name="description" content="
+transform 主要包括以下几种：旋转rotate、扭曲skew、缩放scale和移动translate以及矩阵变形matrix。我们可以使用 transform 来实现元素的 2D , 3D,"> 
+    <meta name="author" content="Aime"> 
+    <link rel="alternative" href="atom.xml" title="玫瑰~尘埃" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">玫瑰~尘埃</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://aimeandis.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">CSS3之 transform能干什么</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">CSS3之 transform能干什么</h1>
+        <div class="stuff">
+            <span>六月 06, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%8A%A8%E7%94%BB/" rel="tag">动画</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p><strong>transform</strong> 主要包括以下几种：<strong>旋转rotate</strong>、<strong>扭曲skew</strong>、<strong>缩放scale</strong>和<strong>移动translate</strong>以及<strong>矩阵变形matrix</strong>。我们可以使用 transform 来实现元素的 2D , 3D 转换。</p>
+</blockquote>
+<h3 id="2D-Transform转换"><a href="#2D-Transform转换" class="headerlink" title="2D Transform转换"></a>2D Transform转换</h3><ul>
+<li>translate(x,y)  定义 2D 转换，沿着 X 和 Y 轴移动元素</li>
+<li>translateX(n)  定义 2D 转换，沿着 X 轴移动元素</li>
+<li>translateY(n)  定义 2D 转换，沿着 Y 轴移动元素</li>
+<li>rotate()  定义 2D 旋转，在参数中规定角度</li>
+<li>scale(x,y) 定义 2D 缩放转换，改变元素的宽度和高度</li>
+<li>scaleX(n)  定义 2D 缩放转换，改变元素的宽度</li>
+<li>scaleY(n)  定义 2D 缩放转换，改变元素的高度</li>
+<li>skew(x-angle,y-angle)  定义 2D 倾斜转换，沿着 X 和 Y 轴 </li>
+<li>skewX(angle)  定义 2D 倾斜转换，沿着 X 轴</li>
+<li>skewY(angle)  定义 2D 倾斜转换，沿着 Y 轴</li>
+<li>matrix(n,n,n,n,n,n)  定义 2D 转换，使用六个值的矩阵</li>
+</ul>
+<p>​      </p>
+<h4 id="translate"><a href="#translate" class="headerlink" title="translate()"></a>translate()</h4><p>通过 <code>translate()</code> 方法，元素从其当前位置移动，根据给定的left（x坐标）和top（y坐标）位置：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>);		<span class="comment">/* IE 9 */</span></span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>);	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">    <span class="attribute">-o-transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>);		<span class="comment">/* Opera */</span></span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>);		<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>值 translate(50px,100px) 把元素从左侧移动 50 像素，从顶端移动 100 像素。</p>
+<img src="/img/translate.png" class="" title="translate">
+
+<p>​      </p>
+<p>日常可以使用<code>translate()</code> 实现一些定位问题，例如，使元素垂直水平居中：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: plum;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  <img src="/img/%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%ADtranslate.png" class="" title="center-translate">  
+
+<h4 id="rotate"><a href="#rotate" class="headerlink" title="rotate()"></a>rotate()</h4><p>通过 <code>rotate()</code> 方法，元素顺时针旋转给定的角度。允许负值，元素将逆时针旋转。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">30deg</span>);</span><br><span class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(<span class="number">30deg</span>);		<span class="comment">/* IE 9 */</span></span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(<span class="number">30deg</span>);	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">    <span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(<span class="number">30deg</span>);		<span class="comment">/* Opera */</span></span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(c30deg);		<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>值 rotate(30deg) 把元素顺时针旋转 30 度。</p>
+<img src="/img/rotate.png" class="" title="rotate">
+
+<p>​      </p>
+<h4 id="scale"><a href="#scale" class="headerlink" title="scale()"></a>scale()</h4><p>通过 <code>scale()</code> 方法，元素的尺寸会增加或减少，根据给定的宽度（X 轴）和高度（Y 轴）参数：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>,<span class="number">4</span>);	<span class="comment">/* IE 9 */</span></span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>,<span class="number">4</span>);	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">    <span class="attribute">-o-transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>,<span class="number">4</span>);	<span class="comment">/* Opera */</span></span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>,<span class="number">4</span>);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>值 scale(2,4) 把宽度转换为原始尺寸的 2 倍，把高度转换为原始高度的 4 倍。</p>
+<img src="/img/scale.png" class="" title="scale">
+
+<p>​      </p>
+<p>日常通过 <code>scale()</code> + <code>transition</code> 可以实现鼠标滑过图片动态平滑伸缩显示效果。关于 <code>transition</code>  可以移步：<a href="[https://aimeandis.github.io/2020/06/05/CSS3%E4%B9%8B-transition%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88/](https://aimeandis.github.io/2020/06/05/CSS3之-transition能干什么/)">CSS3之 transition能干什么</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.img-scale</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.img-scale</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">transition</span>: transform .<span class="number">5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.img-scale</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+<h4 id="skew"><a href="#skew" class="headerlink" title="skew()"></a>skew()</h4><p>通过 <code>skew()</code> 方法，元素翻转给定的角度，根据给定的水平线（X 轴）和垂直线（Y 轴）参数：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skew</span>(<span class="number">30deg</span>,<span class="number">20deg</span>);</span><br><span class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">skew</span>(<span class="number">30deg</span>,<span class="number">20deg</span>);	<span class="comment">/* IE 9 */</span></span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">skew</span>(<span class="number">30deg</span>,<span class="number">20deg</span>);	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">    <span class="attribute">-o-transform</span>: <span class="built_in">skew</span>(<span class="number">30deg</span>,<span class="number">20deg</span>);	<span class="comment">/* Opera */</span></span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">skew</span>(<span class="number">30deg</span>,<span class="number">20deg</span>);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>值 skew(30deg,20deg) 围绕 X 轴把元素翻转 30 度，围绕 Y 轴翻转 20 度。</p>
+<img src="/img/skew.png" class="" title="skew">
+
+<p>​      </p>
+<h4 id="matrix"><a href="#matrix" class="headerlink" title="matrix()"></a>matrix()</h4><p><code>matrix()</code> 方法把所有的 2D 转换方法组合在一起 。</p>
+<p><code>matrix()</code> 方法需要六个参数，包含数学函数，允许：旋转，缩放，移动以及倾斜元素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>:<span class="built_in">matrix</span>(<span class="number">0.866</span>,<span class="number">0.5</span>,-<span class="number">0.5</span>,<span class="number">0.866</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="attribute">-ms-transform</span>:<span class="built_in">matrix</span>(<span class="number">0.866</span>,<span class="number">0.5</span>,-<span class="number">0.5</span>,<span class="number">0.866</span>,<span class="number">0</span>,<span class="number">0</span>);		<span class="comment">/* IE 9 */</span></span><br><span class="line">    <span class="attribute">-moz-transform</span>:<span class="built_in">matrix</span>(<span class="number">0.866</span>,<span class="number">0.5</span>,-<span class="number">0.5</span>,<span class="number">0.866</span>,<span class="number">0</span>,<span class="number">0</span>);	<span class="comment">/* Firefox */</span></span><br><span class="line">    <span class="attribute">-webkit-transform</span>:<span class="built_in">matrix</span>(<span class="number">0.866</span>,<span class="number">0.5</span>,-<span class="number">0.5</span>,<span class="number">0.866</span>,<span class="number">0</span>,<span class="number">0</span>);	<span class="comment">/* Safari and Chrome */</span></span><br><span class="line">    <span class="attribute">-o-transform</span>:<span class="built_in">matrix</span>(<span class="number">0.866</span>,<span class="number">0.5</span>,-<span class="number">0.5</span>,<span class="number">0.866</span>,<span class="number">0</span>,<span class="number">0</span>);		<span class="comment">/* Opera */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面使用 <code>matrix</code> 方法将div元素旋转了 30 度。</p>
+<p>​      </p>
+<h3 id="3D-转换"><a href="#3D-转换" class="headerlink" title="3D 转换"></a>3D 转换</h3><ul>
+<li>rotateX()</li>
+<li>rotateY()</li>
+</ul>
+<h4 id="rotateX"><a href="#rotateX" class="headerlink" title="rotateX()"></a>rotateX()</h4><p>通过 <code>rotateX()</code> 方法，元素围绕其 X 轴以给定的度数进行旋转。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    transform: rotateX(120deg);</span><br><span class="line">    -webkit-transform: rotateX(120deg);	&#x2F;* Safari 和 Chrome *&#x2F;</span><br><span class="line">    -moz-transform: rotateX(120deg);	&#x2F;* Firefox *&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/img/rotateX.png" class="" title="rotateX">
+
+<p>​      </p>
+<h4 id="rotateY"><a href="#rotateY" class="headerlink" title="rotateY()"></a>rotateY()</h4><p>通过 <code>rotateY()</code> 方法，元素围绕其 Y 轴以给定的度数进行旋转。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">130deg</span>);</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateY</span>(<span class="number">130deg</span>);	<span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotateY</span>(<span class="number">130deg</span>);	<span class="comment">/* Firefox */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="E:%5Ccode%5CHEXO%5Csource%5Cimg%5CrotateY.png" alt="image-20200606134047285"></p>
+<img src="/img/rotateY.png" class="" title="rotateY">
+
+<p>​       </p>
+<hr>
+<p>关于转换还有很多，本文只列举了一些基础的简单用法。用于日常简单的动效。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
